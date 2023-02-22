@@ -1,16 +1,20 @@
-#include <stdio.h>
+#include "main.h"
 /**
- * main - Write a program that prints _putchar, followed by a new line
- *
- * Return: Always 0 (success)
-*/
-
-/* Void function*/
+ * main - Entry Block
+  *Description: prints _putchar followed by a new line
+ * Return: 0
+ */
 int main(void)
 {
-/*print putchar*/
-printf("_putchar\n");
+	char c[8] = "_putchar";
 
-/*return(0)*/
-return (0);
+	int i = 0;
+
+	while (i < 8)
+	{
+		_putchar(c[i]);
+		i++;
+	}
+	_putchar('\n');
+	return (0);
 }
