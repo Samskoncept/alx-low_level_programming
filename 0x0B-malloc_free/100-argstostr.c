@@ -1,78 +1,50 @@
 #include "main.h"
-		
 #include <stdlib.h>
-		
 /**
-		
- * argstostr - main entry
-		
- * @ac: int input
-		
- * @av: double pointer array
-		
- * Return: 0
-		
+ * argstostr - concatenates all arguments of the program.
+ * @ac: argument count.
+ * @av: pointer to array of size ac.
+ * Return: NULL if ac == 0 or av == null, Pointer to new string.
+ * NULL on fail.
  */
-		
 char *argstostr(int ac, char **av)
-		
 {
-		
-	int i, n, r = 0, l = 0;
-		
-	char *str;
-		
+	int i, j, k, size;
+	char *arg;
 
-		
+	size = 0;
+	k = 0;
 	if (ac == 0 || av == NULL)
-		
 		return (NULL);
-		
-
-		
-	for (i = 0; i < ac; i++)
-		
+	i = 0;
+	while (i < ac)
 	{
-		
-		for (n = 0; av[i][n]; n++)
-		
-			l++;
-		
+		j = 0;
+		while (av[i][j])
+		{
+			size++;
+			j++;
+		}
+		size++;
+		i++;
 	}
-		
-	l += ac;
-		
-
-		
-	str = malloc(sizeof(char) * l + 1);
-		
-	if (str == NULL)
-		
+	arg = malloc((sizeof(char) * size) + 1);
+	if (arg == NULL)
 		return (NULL);
-		
-	for (i = 0; i < ac; i++)
-		
+	i = 0;
+	while (i < ac)
 	{
-		
-	for (n = 0; av[i][n]; n++)
-		
-	{
-		
-		str[r] = av[i][n];
-		
-		r++;
-		
+		j = 0;
+		while (av[i][j])
+		{
+			arg[k] = av[i][j];
+			j++;
+			k++;
+		}
+		arg[k] = '\n';
+		k++;
+		i++;
 	}
-		
-	if (str[r] == '\0')
-		
-	{
-		
-		str[r++] = '\n';
-		
-	}
-	
-	}	
-
-	return (str);	
+	arg[k] = '\0';
+	return (arg);
 }
