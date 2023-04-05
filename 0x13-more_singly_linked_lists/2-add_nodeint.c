@@ -1,9 +1,9 @@
-#include "lists.h"
-#include <stdio.h>
-#include <string.h>
+#include "lists.h" //preprocessor directive 
+#include <stdio.h> //preprocessor directive
+#include <string.h> //preprocessor directive
 
 /**
- * add_nodeint - add nodes to the head of a linked list
+ * add_nodeint - add nodes to the head of a LINK list
  * @head: link list head
  * @n: int element of the linked list
  * Return: the address of the new element
